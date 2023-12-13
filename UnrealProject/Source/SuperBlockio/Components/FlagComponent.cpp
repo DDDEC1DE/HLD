@@ -36,7 +36,7 @@ void UFlagComponent::OnCheckpoint(FVector FlagPos)
     ASuperBlockioGameModeBase* Gamemode = Cast<ASuperBlockioGameModeBase>(GetWorld()->GetAuthGameMode());
 
 	//IF Gamemode NOT nullptr
-    if(Gamemode == nullptr)
+    if(Gamemode != nullptr)
     {
     	//CALL OnCheckpoint() on Gamemode passing in FlagPos
         Gamemode->OnCheckpoint(FlagPos);

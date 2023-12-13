@@ -54,6 +54,11 @@ void AONOFFBlock::BeginPlay()
 
         //CALL BoxCollision->OnComponentHit.RemoveDynamic() passing in this, &AONOFFBlock::OnHit
         BoxCollision->OnComponentHit.RemoveDynamic(this, &AONOFFBlock::OnHit);
+
+        if (OnOffComponent && OnOffComponent->State == false)
+        {
+            SetActorEnableCollision(false);
+        }
     }
     //ENDIF
 }

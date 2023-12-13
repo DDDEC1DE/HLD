@@ -24,6 +24,8 @@ class SUPERBLOCKIO_API AFlagpoint : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFlagpoint();
+    UFUNCTION(BlueprintCallable, Category = "Checkpoint")
+    FVector GetCheckpointLocation() const { return GetActorLocation(); }
 
 protected:
 	// Called when the game starts or when spawned

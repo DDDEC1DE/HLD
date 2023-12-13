@@ -62,6 +62,8 @@ void AAICharacter::Tick(float DeltaTime)
         //CALL SetActorLocation() passing in FMath::VInterpConstantTo(GetActorLocation(), CurrentPatrolPoint->GetActorLocation(), DeltaTime, 600.f)
         SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), CurrentPatrolPoint->GetActorLocation(), DeltaTime, 600.f));
     }
+      
+
     //ENDIF
 }
 

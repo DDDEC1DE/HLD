@@ -50,28 +50,53 @@ void ASuperBlockioGameModeBase::OnCheckpoint(FVector FlagPos)
 
 void ASuperBlockioGameModeBase::OnDeath()
 {
-	//IF GameState->GetLives() NOT EQUAL 0
-    if(GameState->GetLives() != 0)
+    //IF GameState->GetLives() NOT EQUAL 0
+    if (GameState->GetLives() != 0)
     {
-    	//CALL SetActorLocation() on PlayerCharacter passing in GameState->GetCheckpointLocation()
+        //CALL SetActorLocation() on PlayerCharacter passing in GameState->GetCheckpointLocation()
         PlayerCharacter->SetActorLocation(GameState->GetCheckpointLocation());
-    	//CALL IncreaseLives() on GameState passing in -1
+        //CALL IncreaseLives() on GameState passing in -1
         GameState->IncreaseLives(-1);
     }
     //ELSE
     else
     {
         /* If world not null, then cast Aplayer, however if the condition is not met, nullptr */
-    	//SET PlayerCharacter to the return of --> GetWorld() != nullptr ? Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn()) : nullptr
+        //SET PlayerCharacter to the return of --> GetWorld() != nullptr ? Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn()) : nullptr
         PlayerCharacter = GetWorld() != nullptr ? Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn()) : nullptr;
-    	//CALL Destroy() on PlayerCharacter
+        //CALL Destroy() on PlayerCharacter
         PlayerCharacter->Destroy();
         /*Show GameOver*/
-    	//CALL GameOver()
+        //CALL GameOver()
         GameOver();
 
     }
 }
+//    // Get a reference to the player character
+//    APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
+//
+//    if (PlayerCharacter)
+//    {
+//        // Check if the player has lives left
+//        if (GameState->GetLives() > 0)
+//        {
+//            // Get the checkpoint location from the game state
+//            FVector CheckpointLocation = GameState->GetCheckpointLocation();
+//
+//            // Respawn the player character at the checkpoint
+//            PlayerCharacter->SetActorLocation(CheckpointLocation);
+//
+//            // Decrease the player's lives
+//            GameState->IncreaseLives(-1);
+//        }
+//        else
+//        {
+//            // Handle game over logic here
+//            GameOver();
+//        }
+//    }
+//}
+
 
 void ASuperBlockioGameModeBase::GameOver()
 {

@@ -82,7 +82,7 @@ void AMovingPlatform::BeginPlay()
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
-	//Super::Tick(DeltaTime);
+	Super::Tick(DeltaTime);
 
 	////DECLARE a variable called Delta of type FVector const and assign it to BoxCollision->GetComponentLocation() - CurrentGoToLocation
  //   const FVector Delta = BoxCollision->GetComponentLocation() - CurrentGoToLocation;
@@ -109,10 +109,10 @@ void AMovingPlatform::Tick(float DeltaTime)
  //   }
 	////ENDIF
 
-	////DECLARE a variable called targetLocation of type FVector and assign it to the return value of FMath::VInterpConstantTo(BoxCollision->GetComponentLocation(), CurrentGoToLocation, DeltaTime, InterpSpeed)
- //   FVector targetLocation = FMath::VInterpConstantTo(BoxCollision->GetComponentLocation(), CurrentGoToLocation, DeltaTime, InterpSpeed);
-	////CALL SetWorldLocation() on BoxCollision passing in targetLocation
- //   BoxCollision->SetWorldLocation(targetLocation);
+	//DECLARE a variable called targetLocation of type FVector and assign it to the return value of FMath::VInterpConstantTo(BoxCollision->GetComponentLocation(), CurrentGoToLocation, DeltaTime, InterpSpeed)
+    FVector targetLocation = FMath::VInterpConstantTo(BoxCollision->GetComponentLocation(), CurrentGoToLocation, DeltaTime, InterpSpeed);
+	//CALL SetWorldLocation() on BoxCollision passing in targetLocation
+    BoxCollision->SetWorldLocation(targetLocation);
 
     Super::Tick(DeltaTime);
 

@@ -26,7 +26,7 @@ AFlagpoint::AFlagpoint()
     //CALL BoxCollision->OnComponentBeginOverlap.AddDynamic() passing in this, &AFlagpoint::OnOverlapBegin
     BoxCollision->OnComponentBeginOverlap.AddDynamic(this, &AFlagpoint::OnOverlapBegin);
     //SET the RootComponent to BoxCollision
-    BoxCollision->SetupAttachment(RootComponent);
+    RootComponent = BoxCollision;
 
     //CREATE the FlagSprite Component
     FlagSprite = CreateDefaultSubobject<UPaperSpriteComponent>("FlagSprite");
@@ -66,7 +66,9 @@ void AFlagpoint::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Oth
         {
             //CALL OnCheckpoint() on FlagComponent passing in this->GetActorLocation()
             FlagComponent->OnCheckpoint(this->GetActorLocation());
+           
             //CALL SetSprite() on FlagSprite passin in --> Cast<UPaperSprite>(StaticLoadObject(UPaperSprite::StaticClass(), NULL, TEXT("/Game/Textures/8Bit_Checkpoint_ON_Sprite")))
+           
             FlagSprite->SetSprite(Cast<UPaperSprite>(StaticLoadObject(UPaperSprite::StaticClass(), NULL, TEXT("/Game/Textures/8Bit_Checkpoint_ON_Sprite"))));
         }
         //ELSE IF Flagtype IS EFlagEnum::Goal

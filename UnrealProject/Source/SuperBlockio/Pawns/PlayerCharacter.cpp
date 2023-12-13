@@ -374,6 +374,7 @@ void APlayerCharacter::HasDied()
     //DECLARE a variable called Gamemode of type ASuperBlockioGameModeBase* and assign it to the return value of Cast<ASuperBlockioGameModeBase>(GetWorld()->GetAuthGameMode())
     ASuperBlockioGameModeBase* Gamemode = Cast<ASuperBlockioGameModeBase>(GetWorld()->GetAuthGameMode());
 
+
     //IF Gamemode NOT NULL
     if (Gamemode != nullptr)
     {

@@ -48,7 +48,7 @@ protected:
         ETarget StartingTarget;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathing")
-        float InterpSpeed;
+        float InterpSpeed = 400.0f;
 
 public:	
 	// Called every frame

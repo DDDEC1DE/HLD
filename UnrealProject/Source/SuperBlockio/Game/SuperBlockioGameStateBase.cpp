@@ -24,6 +24,7 @@ void ASuperBlockioGameStateBase::BeginPlay()
 
 FVector ASuperBlockioGameStateBase::GetCheckpointLocation()
 {
+
     return RespawnLocation;
 }
 
